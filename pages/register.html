@@ -1,0 +1,193 @@
+
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Feedback — Plant Detection (Bold Bonate)</title>
+   <link rel="stylesheet" href="./code.css"> 
+  <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+   
+
+
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <img src="/images/plant_10486100.png" alt="Plant Logo">
+    </div>
+    <ul>
+      <li><a href="/index.html"><i class="fas fa-home"></i> Home</a></li>
+       <li><a href="plant.html"><i class="fas fa-leaf"></i> Plant Detection</a></li>
+      <li><a href="chat.html"><i class="fas fa-user"></i> Chat</a></li>
+      <li><a href="register.html"><i class="fas fa-comment-dots"></i> Feedback</a></li>
+      <li><a href="about.html"><i class="fas fa-info-circle"></i> AboutUs</a></li>
+       <li><a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+       <li><a href="profile.html"><i class="fas fa-leaf"></i> Profile</a></li>
+     
+    </ul>
+  </nav>
+
+  <style>
+    :root{--accent:#1f9d55;--muted:#666}
+    *{box-sizing:border-box}
+    body{font-family:Inter,system-ui,Arial,sans-serif;margin:40px;padding: 40px;background:#f6fbf7;color:#0b1220}
+    .container{padding: 40px;margin: 30px;max-width:820px;margin:36px auto;padding:24px;background:#fff;border-radius:12px;box-shadow:0 8px 30px rgba(11,18,32,0.06)}
+    h1{margin:0 0 8px;font-size:22px}
+    p.lead{margin:0 0 18px;color:var(--muted)}
+
+    form{display:grid;grid-template-columns:1fr 300px;gap:18px}
+    .left{min-width:0}
+    label{display:block;font-size:13px;margin-bottom:8px}
+    input[type=text], input[type=email], select, textarea{width:100%;padding:10px;border:1px solid #e6ece7;border-radius:8px;font-size:14px}
+    textarea{min-height:120px;resize:vertical}
+    .row{display:flex;gap:12px}
+    .file-drop{display:flex;flex-direction:column;align-items:center;justify-content:center;border:2px dashed #e2efe4;padding:14px;border-radius:10px;min-height:170px}
+    .file-drop.dragover{border-color:var(--accent);background:#f0fff4}
+    .meta{font-size:12px;color:var(--muted);margin-top:8px}
+
+    .right{display:flex;flex-direction:column;gap:12px}
+    .btn{background:var(--accent);color:white;padding:10px 16px;border-radius:10px;border:0;font-weight:600;cursor:pointer}
+    .btn:disabled{opacity:0.6;cursor:not-allowed}
+    .small{font-size:13px;color:var(--muted)}
+    .preview{max-width:100%;border-radius:8px;margin-top:8px}
+    .status{margin-top:8px;padding:10px;border-radius:8px;font-size:14px}
+    .status.info{background:#eefbf0;border:1px solid #d6f4db}
+    .status.error{background:#fff6f6;border:1px solid #ffd6d6;color:#7a1b1b}
+
+    @media (max-width:880px){form{grid-template-columns:1fr} .right{order:2}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Feedback — Plant Disease & Pesticide Detection</h1>
+    <p class="lead">Share feedback about the detection results, pesticides suggested, false positives, or upload a photo of the plant/sample.</p>
+
+    <form id="feedbackForm">
+      <div class="left">
+        <label for="name">Your name</label>
+        <input id="name" name="name" type="text" placeholder="e.g. Priya Sharma" required />
+
+        <label for="email" style="margin-top:12px">Email (optional)</label>
+        <input id="email" name="email" type="email" placeholder="you@example.com" />
+
+        <label for="plant" style="margin-top:12px">Plant / Crop</label>
+        <input id="plant" name="plant" type="text" placeholder="e.g. Soybean, Tomato" required />
+
+        <label for="detected" style="margin-top:12px">Detected disease (if any)</label>
+        <input id="detected" name="detected" type="text" placeholder="e.g. Early blight, Bacterial wilt" />
+
+        <label for="pesticide" style="margin-top:12px">Pesticide used / recommended</label>
+        <input id="pesticide" name="pesticide" type="text" placeholder="e.g. Mancozeb" />
+
+        <label for="severity" style="margin-top:12px">Severity</label>
+        <select id="severity" name="severity">
+          <option value="unknown">Unknown</option>
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
+
+        <label for="comments" style="margin-top:12px">Comments / Feedback</label>
+        <textarea id="comments" name="comments" placeholder="Describe what happened, false positives, model suggestions, or anything else..." ></textarea>
+      </div>
+
+      <div class="right">
+        <div>
+          <label>Upload plant image (optional)</label>
+          <div id="fileDrop" class="file-drop" tabindex="0">
+            <div style="text-align:center">
+              <div style="font-weight:600">Drag & drop an image here</div>
+              <div class="meta">or <label for="fileInput" style="color:var(--accent);cursor:pointer;display:inline">choose a file</label> — JPG/PNG, max 6MB</div>
+            </div>
+            <img id="previewImg" class="preview" style="display:none" alt="preview" />
+          </div>
+          <input id="fileInput" name="image" type="file" accept="image/png,image/jpeg" style="display:none" />
+        </div>
+
+        <div class="small">
+          <label for="rating">Accuracy rating (how accurate was the detection?)</label>
+          <div class="row" style="margin-top:6px">
+            <select id="rating" name="rating">
+              <option value="0">-- choose --</option>
+              <option value="1">1 — Very poor</option>
+              <option value="2">2 — Poor</option>
+              <option value="3">3 — Okay</option>
+              <option value="4">4 — Good</option>
+              <option value="5">5 — Excellent</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="margin-top:auto;display:flex;gap:10px">
+          <button id="submitBtn" class="btn">Send feedback</button>
+          <button id="clearBtn" type="button" class="btn" style="background:#6b7280">Clear</button>
+        </div>
+
+        <div id="status" class="status info" style="display:none"></div>
+      </div>
+    </form>
+
+    <p style="margin-top:14px;font-size:13px;color:var(--muted)">Tip: keep images under 6MB. Server-side validation is required in production.</p>
+  </div>
+
+  <script>
+    // Frontend behaviour: drag/drop, preview, client validation & fetch submit
+    const fileDrop = document.getElementById('fileDrop');
+    const fileInput = document.getElementById('fileInput');
+    const previewImg = document.getElementById('previewImg');
+    const form = document.getElementById('feedbackForm');
+    const statusEl = document.getElementById('status');
+    const submitBtn = document.getElementById('submitBtn');
+    const clearBtn = document.getElementById('clearBtn');
+
+    const MAX_FILE_BYTES = 6 * 1024 * 1024; // 6MB
+
+    function setStatus(text, kind='info'){statusEl.style.display='block';statusEl.className='status '+kind;statusEl.textContent=text}
+    function clearStatus(){statusEl.style.display='none';statusEl.textContent='';}
+
+    fileDrop.addEventListener('click', ()=> fileInput.click());
+    fileInput.addEventListener('change', handleFiles);
+
+    ['dragenter','dragover'].forEach(ev => fileDrop.addEventListener(ev, e=>{e.preventDefault();e.stopPropagation();fileDrop.classList.add('dragover')}));
+    ['dragleave','drop'].forEach(ev => fileDrop.addEventListener(ev, e=>{e.preventDefault();e.stopPropagation();fileDrop.classList.remove('dragover')}));
+
+    fileDrop.addEventListener('drop', e=>{const dt = e.dataTransfer; if(dt && dt.files && dt.files.length) { fileInput.files = dt.files; handleFiles(); }});
+
+    function handleFiles(){
+      const f = fileInput.files[0];
+      if(!f){ previewImg.style.display='none'; return }
+      if(!['image/jpeg','image/png'].includes(f.type)){ setStatus('Only JPG/PNG images allowed','error'); fileInput.value=''; return }
+      if(f.size > MAX_FILE_BYTES){ setStatus('File too large — max 6MB','error'); fileInput.value=''; return }
+      clearStatus();
+      const reader = new FileReader();
+      reader.onload = () => { previewImg.src = reader.result; previewImg.style.display='block'; }
+      reader.readAsDataURL(f);
+    }
+
+    clearBtn.addEventListener('click', ()=>{form.reset(); fileInput.value=''; previewImg.style.display='none'; clearStatus();});
+
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      submitBtn.disabled = true; setStatus('Sending feedback...','info');
+
+      const formData = new FormData(form);
+
+      // Basic extra client validation
+      const image = fileInput.files[0];
+      if(image && image.size > MAX_FILE_BYTES){ setStatus('Image too large (max 6MB)','error'); submitBtn.disabled=false; return }
+
+      try{
+        const res = await fetch('/api/feedback', { method:'POST', body: formData });
+        if(!res.ok) throw new Error((await res.text()) || res.statusText);
+        setStatus('Thanks — feedback sent successfully!','info');
+        form.reset(); fileInput.value=''; previewImg.style.display='none';
+      }catch(err){ console.error(err); setStatus('Failed to send feedback: '+err.message,'error'); }
+      finally{ submitBtn.disabled = false; setTimeout(clearStatus,6000); }
+    });
+  </script>
+
+ 

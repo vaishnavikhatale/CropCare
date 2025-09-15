@@ -1,0 +1,45 @@
+
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  overflow-y: scroll;   /* allow scroll */
+  overflow-x: hidden;
+}
+body::-webkit-scrollbar { display: none; }
+body { scrollbar-width: none; }
+
+/* Navbar */
+
+  .navbar { background-color: #2e7d32;
+     display: flex; align-items: center;
+      justify-content: space-between;
+       padding: 20px 50px; 
+       height: 80px; /* Taller navbar */
+        position: fixed; 
+        top: 0; 
+        left: 0; width: 100%;
+         box-sizing: border-box; 
+         z-index: 1000; }
+
+.logo img {
+  width: 80px;
+  height: 70px;
+}
+.navbar ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+.navbar li { margin: 0 25px; }
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  transition: 0.3s;
+}
+.navbar a:hover { color: #fdd835; }
+.navbar i { margin-right: 10px; }
