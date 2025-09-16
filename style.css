@@ -22,7 +22,7 @@ body { scrollbar-width: none; }
          z-index: 1000; }
 
 .logo img {
-  width: 70px;
+  width: 80px;
   height: 70px;
 }
 .navbar ul {
@@ -54,20 +54,18 @@ body { scrollbar-width: none; }
 
 
 
-
-
 /* Cards */
 .card-container {
   display: flex;
   padding: 30px;
   margin: 30px;
- background: rgba(255, 255, 255, 0.9);
+   background: rgba(255, 255, 255, 0.9);
   justify-content: center;
   gap: 20px;
-  height: 500px;
+  height: 450px;
 }
 .card {
-  background: rgba(255, 255, 255, 0.9);
+  background:#f9fff9;
   color: #333;
   border-radius: 15px;
   padding: 20px;
@@ -78,7 +76,7 @@ body { scrollbar-width: none; }
 }
 .card img {
   width: 150px;
-  height: 200px;
+  height: 150px;
 }
 .card:hover { transform: translateY(-10px); }
 

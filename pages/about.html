@@ -1,0 +1,183 @@
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - CropCare</title>
+   <link rel="stylesheet" href="./code.css"> 
+  <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+   
+     <nav class="navbar">
+    <h1>CropCare</h1>
+    <ul>
+      <li><a href="C:\Users\Vaishnavi\OneDrive\Desktop\plant\index.html"><i class="fas fa-home"></i> Home</a></li>
+       <li><a href="plant.html"><i class="fas fa-leaf"></i> Plant Detection</a></li>
+      <li><a href="register.html"><i class="fas fa-comment-dots"></i> Feedback</a></li>
+      <li><a href="about.html"><i class="fas fa-info-circle"></i> AboutUs</a></li>
+       <li><a href="profile.html"><i class="fas fa-leaf"></i> Profile</a></li>
+     
+    </ul>
+  </nav>
+
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6') no-repeat center center/cover;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      color: #fff;
+      position: relative;
+    }
+
+    /* Add a dark overlay to improve text readability */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:#f9fff9;
+      background: rgba(0, 0, 0, 0.55);
+      z-index: 0;
+    }
+
+    /* Navbar */
+
+
+    /* About Section */
+    .about-section {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      text-align: center;
+      padding: 40px ;
+      border-radius: 15px;
+      margin: 40px auto 20px;
+      max-width: 900px;
+      z-index: 1;
+      position: relative;
+    }
+
+    .about-section h1 {
+      font-size: 2.5rem;
+       padding: 30px ;
+      margin: 20px;
+      color: #ffcc00;
+    }
+
+    .about-section p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #f0f0f0;
+    }
+
+    /* Team Section */
+    .team {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: 20px auto 50px;
+      padding: 20px;
+      z-index: 1;
+      position: relative;
+    }
+
+    .team-card {
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(6px);
+      border-radius: 15px;
+      text-align: center;
+      padding: 25px;
+      color: white;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .team-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+    }
+
+    .team-card img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #ffcc00;
+      box-shadow: 0 0 10px rgba(0,0,0,0.6);
+      margin-bottom: 15px;
+    }
+
+    .team-card h3 {
+      margin: 10px 0 5px;
+      color: #ffcc00;
+      font-size: 1.2rem;
+    }
+
+    .team-card p {
+      font-size: 0.95rem;
+      color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+
+
+
+  <!-- About Section -->
+  <div class="about-section">
+    <h1>About CropCare</h1>
+    <p>
+      CropCare is a smart solution designed to monitor plant health using AI-powered robotics.
+      Our system analyzes crop conditions and helps farmers take timely action to protect their plants.
+      Our mission is to make farming more efficient, sustainable, and profitable.
+    </p>
+  </div>
+
+  <!-- Team Section -->
+  <div class="team">
+    <div class="team-card">
+      <img src="https://randomuser.me/api/portraits/women/1.jpg" alt="Team Member">
+      <h3>Member 1</h3>
+      <p>Team Leader & Frontend Developer</p>
+    </div>
+    <div class="team-card">
+      <img src="https://randomuser.me/api/portraits/men/2.jpg" alt="Team Member">
+      <h3>Member 2</h3>
+      <p>Backend Developer</p>
+    </div>
+    <div class="team-card">
+      <img src="https://randomuser.me/api/portraits/men/3.jpg" alt="Team Member">
+      <h3>Member 3</h3>
+      <p>Firebase & Database</p>
+    </div>
+    <div class="team-card">
+      <img src="https://randomuser.me/api/portraits/women/4.jpg" alt="Team Member">
+      <h3>Member 4</h3>
+      <p>UI/UX Designer</p>
+    </div>
+    <div class="team-card">
+      <img src="https://randomuser.me/api/portraits/men/5.jpg" alt="Team Member">
+      <h3>Member 5</h3>
+      <p>Robot Hardware Engineer</p>
+    </div>
+    <div class="team-card">
+      <img src="https://randomuser.me/api/portraits/women/6.jpg" alt="Team Member">
+      <h3>Member 6</h3>
+      <p>AI/ML Model Developer</p>
+    </div>
+  </div>
+
+</body>
+</html>
