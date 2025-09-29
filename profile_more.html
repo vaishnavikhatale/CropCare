@@ -1,0 +1,192 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farmer Profile</title>
+  <style>
+    /* Reset and box-sizing */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f0f8f0; /* Light green background */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background-color: #ffffff; /* White background for the form */
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 600px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #388e3c; /* Green color */
+      margin-bottom: 20px;
+    }
+
+    .section {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid #c8e6c9; /* Light green border */
+    }
+
+    .section:last-child {
+      border-bottom: none;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      color: #388e3c;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="tel"],
+    .form-group input[type="number"],
+    .form-group input[type="file"],
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #c8e6c9;
+      border-radius: 4px;
+      background-color: #f1f8e9; /* Light green background for inputs */
+    }
+
+    .form-group textarea {
+      resize: vertical;
+    }
+
+    .form-actions {
+      text-align: center;
+    }
+
+    .form-actions button {
+      padding: 10px 20px;
+      background-color: #388e3c;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .form-actions button:hover {
+      background-color: #2c6b2f;
+    }
+
+    .form-actions button:disabled {
+      background-color: #b0bec5;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Farmer Profile</h2>
+
+    <!-- Personal Profile Section -->
+    <div class="section">
+      <h3>Personal Profile</h3>
+      <form id="profileForm">
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" name="firstName" required>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" name="lastName" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="mobile">Mobile No.</label>
+          <input type="tel" id="mobile" name="mobile" required>
+        </div>
+        <div class="form-group">
+          <label for="photo">Upload Photo</label>
+          <input type="file" id="photo" name="photo" accept="image/*" required>
+        </div>
+        <div class="form-actions">
+          <button type="button" onclick="saveProfile()">Save Profile</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Farm Details Section -->
+    <div class="section">
+      <h3>Farm Details</h3>
+      <form id="farmForm">
+        <div class="form-group">
+          <label for="farmName">Farm Name</label>
+          <input type="text" id="farmName" name="farmName" required>
+        </div>
+        <div class="form-group">
+          <label for="location">Location</label>
+          <input type="text" id="location" name="location" required>
+        </div>
+        <div class="form-group">
+          <label for="primaryCrop">Primary Crop</label>
+          <input type="text" id="primaryCrop" name="primaryCrop" required>
+        </div>
+        <div class="form-group">
+          <label for="farmSize">Farm Size (acres)</label>
+          <input type="number" id="farmSize" name="farmSize" required>
+        </div>
+        <div class="form-actions">
+          <button type="button" onclick="saveFarmDetails()">Save Details</button>
+        </div>
+      </form>
+    </div>
+         <center> <a href="C:\Users\Vaishnavi\OneDrive\Desktop\plant\index.html"><p><img src="C:\Users\Vaishnavi\OneDrive\Desktop\plant\images\home_8872250.png" width="30" height="30 " alt="back to home "></p></a></center>      
+  
+  </div>
+
+  <script>
+    function saveProfile() {
+      const profileData = {
+        firstName: document.getElementById('firstName').value,
+        lastName: document.getElementById('lastName').value,
+        email: document.getElementById('email').value,
+        mobile: document.getElementById('mobile').value,
+        photo: document.getElementById('photo').files[0]
+      };
+      console.log('Profile Data:', profileData);
+      alert('Profile saved!');
+    }
+
+    function saveFarmDetails() {
+      const farmData = {
+        farmName: document.getElementById('farmName').value,
+        location: document.getElementById('location').value,
+        primaryCrop: document.getElementById('primaryCrop').value,
+        farmSize: document.getElementById('farmSize').value
+      };
+      console.log('Farm Details:', farmData);
+      alert('Farm details saved!');
+    }
+  </script>
+
+</body>
+</html>

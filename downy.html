@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Disease Info</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #4CAF50; /* Green background */
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .content {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #2E7D32;
+        }
+
+        .main-image {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .main-image img {
+            width: 80%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .section-box {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .info-grid .section-box {
+            margin-bottom: 0;
+        }
+
+        .supplements-box {
+            text-align: center;
+        }
+
+        .supplements-box img {
+            max-width: 150px;
+            margin: 15px 0;
+        }
+
+        @media (max-width: 768px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Grape: Downy Mildew 🍃</h1>
+        
+        <div class="main-image">
+            <img src="data:image/jpeg;base64,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" alt="Grape leaf with downy mildew">
+        </div>
+
+        <div class="content">
+            <div class="section-box">
+                <h2>Brief Description:</h2>
+                <p>Downy mildew is a fungal disease that thrives in cool, wet conditions. It appears as yellow-green spots on the upper side of leaves, which later turn brown. On the underside, a characteristic white, fluffy growth of fungal spores is visible. Severe infections can lead to leaf drop, stunted growth, and a significant reduction in yield. The disease can also affect young stems and fruits, causing them to shrivel and rot.</p>
+            </div>
+
+            <div class="info-grid">
+                <div class="section-box">
+                    <h2>Prevent This Plant Disease By following these steps:</h2>
+                    <p>Improve air circulation by pruning and proper plant spacing. Use resistant grape varieties. Apply preventative fungicides during periods of wet weather, especially when new growth is present. Remove and destroy infected leaves and plant debris to reduce the spread of spores. Avoid overhead watering to keep foliage dry.</p>
+                </div>
+                
+                <div class="section-box supplements-box">
+                    <h2>Supplements:</h2>
+                    <img src="data:image/jpeg;base64,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" alt="Copper Fungicide">
+                    <p>Copper-based fungicides like Copper Oxychloride or Bordeaux mixture are effective against downy mildew. They create a protective barrier on the plant surface that prevents fungal spores from germinating.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

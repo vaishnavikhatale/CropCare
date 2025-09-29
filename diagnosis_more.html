@@ -1,0 +1,251 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dynamic Crop & Disease Info</title>
+  <style>
+   
+
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-top: 15px;
+      font-weight: bold;
+      color: #555;
+    }
+
+    input[type="text"], select {
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1em;
+    }
+
+    input[type="file"] {
+      margin-top: 5px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    .result {
+      margin-top: 30px;
+      padding: 15px;
+      background-color: #eef;
+      border: 1px solid #99c;
+      border-radius: 4px;
+    }
+
+    .preview-img {
+      margin-top: 15px;
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .refresh-btn {
+      margin-top: 10px;
+      padding: 8px;
+      background-color: brown;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .refresh-btn:hover {
+      background-color: lightgreen;
+    }
+      .button-container {
+    position: center;
+    display: flex;
+     /* Enables Flexbox layout */
+    flex-wrap: wrap; /* Allows buttons to wrap to a new line */
+    justify-content: center; /* Centers the buttons horizontally within the container */
+    align-items: center; /* Centers items vertically (though not as critical here) */
+    width: fit-content; /* Makes the container's width fit its content */
+    margin: 20px;
+    padding: 20px; /* Centers the container itself horizontally on the page */
+  }
+
+  .button-link {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #47d147;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    border: none;
+    cursor: pointer;
+  }
+
+  .button-link:hover {
+    background-color: #47d147;
+  }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Crop & Plant Disease Info</h1>
+    <form id="cropForm">
+      <label for="cropName">Crop Name</label>
+      <input type="text" id="cropName" name="cropName" placeholder="Enter crop name" required>
+
+      <label for="imageUpload">Upload Plant Image</label>
+      <input type="file" id="imageUpload" name="imageUpload" accept="image/*" required>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <button class="refresh-btn" id="refreshButton">Refresh Page</button>
+
+
+   
+   
+     <center> <a href="C:\Users\Vaishnavi\OneDrive\Desktop\plant\pages\plant.html"><p><img src="C:\Users\Vaishnavi\OneDrive\Desktop\plant\images\leaf_4493425.png" width="30" height="30 " alt="plant detection  "></p></a></center>      
+
+
+    <div class="result" id="result" style="display: none;">
+      <h2>Result</h2>
+      <p><strong>Crop:</strong> <span id="resCropName"></span></p>
+      <p><strong>Estimated Growth Days:</strong> <span id="resGrowthDays"></span></p>
+      <p><strong>Disease Detected:</strong> <span id="resDisease"></span></p>
+      <p><strong>Suggested Pesticide:</strong> <span id="resPesticide"></span></p>
+      <div>
+        <strong>Image Preview:</strong><br>
+        <img id="resImage" class="preview-img" src="" alt="Plant Image Preview">
+      </div>
+   
+    </div>
+  </div>
+  
+   
+
+<center>
+  <a href="leaf_blight.html" class="button-link">Leaf Blight</a>
+  <a href="leaf_curl.html" class="button-link">Leaf curl Virus</a>
+  <a href="late_blight.html" class="button-link">Late Blight</a>
+  <a href="early_blight.html" class="button-link">Early Blight</a>
+
+  <a href="downy.html" class="button-link">Downy Mildew</a>
+  <a href="powdery.html" class="button-link">Powdery Mildew</a>
+  <a href="anthro.html" class="button-link">Anthracnose</a>
+</center>
+
+
+
+   <center> <a href="C:\Users\Vaishnavi\OneDrive\Desktop\plant\index.html"><p><img src="C:\Users\Vaishnavi\OneDrive\Desktop\plant\images\home_8872250.png" width="30" height="30 " alt="back to home "></p></a></center>      
+  
+
+  <script>
+    document.getElementById('cropForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const cropName = document.getElementById('cropName').value.trim();
+      const fileInput = document.getElementById('imageUpload');
+      const file = fileInput.files[0];
+      if (!cropName || !file) {
+        alert('Please enter crop name and select an image.');
+        return;
+      }
+
+      // Show image preview
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        document.getElementById('resImage').src = evt.target.result;
+      };
+      reader.readAsDataURL(file);
+
+      // Dynamic / mock logic based on cropName
+      let growthDays;
+      let disease;
+      let pesticide;
+
+      // Example: logic based on cropName
+      const cropLower = cropName.toLowerCase();
+      if (cropLower.includes('grapes')) {
+        growthDays = 85;
+        disease = "Late Blight";
+        pesticide = "Mancozeb";
+      } else if (cropLower.includes('tomato')) {
+        growthDays = 150;
+        disease = "leaf curl virus";
+        pesticide = "Tricyclazole";
+      } else if (cropLower.includes('potato')) {
+        growthDays = 110;
+        disease = "Early Blight";
+        pesticide = "Copper Fungicide";
+      } else if (cropLower.includes('soyabean')) {
+        growthDays = 120;
+        disease = "Anthracnose";
+        pesticide = "Azoxystrobin";
+      } else {
+        // default / unknown
+        growthDays = 100;
+        disease = "No any Disease";
+        pesticide = "healthy ";
+      }
+
+      // Update result area
+      document.getElementById('resCropName').innerText = cropName;
+      document.getElementById('resGrowthDays').innerText = growthDays + " days";
+      document.getElementById('resDisease').innerText = disease;
+      document.getElementById('resPesticide').innerText = pesticide;
+      document.getElementById('result').style.display = 'block';
+    });
+
+    // Refresh / reset button
+    document.getElementById('refreshButton').addEventListener('click', function() {
+      // Clear form
+      document.getElementById('cropForm').reset();
+      // Hide results
+      document.getElementById('result').style.display = 'none';
+      // Clear preview image
+      document.getElementById('resImage').src = '';
+    });
+  </script>
+</body>
+</html>
+<a

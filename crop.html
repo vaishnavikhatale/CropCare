@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CropCare - Plant Health</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f4f4f4; text-align: center; padding: 30px; }
+    .container1 { background: white; padding: 20px; max-width: 500px; margin: auto; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);}
+    input[type="file"] { margin-top: 10px; }
+    button { background: #007bff; color: white; border: none; padding: 10px 20px; margin-top: 10px; border-radius: 8px; cursor: pointer; }
+    .result { margin-top: 20px; text-align: left; padding: 15px; border-radius: 10px; white-space: pre-line; }
+    .healthy { background: #e6ffed; border-left: 5px solid #2ecc71; }
+    .diseased { background: #ffe6e6; border-left: 5px solid #e74c3c; }
+    a { color: #007bff; text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="container1">
+    <h2>🌱 CropCare - Plant Health Check</h2>
+    <input type="file" id="plantImage" accept="image/*" />
+    <br />
+    <button onclick="analyzePlant()">Analyze</button>
+    <div id="result" class="result"></div>
+  </div>
+
+  <script>
+    async function analyzePlant() {
+      const fileInput = document.getElementById("plantImage");
+      const resultDiv = document.getElementById("result");
+
+      if (!fileInput.files[0]) {
+        alert("Please select an image first.");
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append("image", fileInput.files[0]);
+
+      resultDiv.innerHTML = "⏳ Analyzing image...";
+
+      try {
+        const res = await fetch("http://localhost:5000/check-plant", {
+          method: "POST",
+          body: formData
+        });
+
+        const data = await res.json();
+        console.log("✅ Response:", data.message);
+
+        if (data.message.includes("healthy")) {
+          resultDiv.className = "result healthy";
+        } else {
+          resultDiv.className = "result diseased";
+        }
+
+        resultDiv.innerHTML = data.message.replace(
+          /(Amazon|Flipkart)/g,
+          '<a href="https://www.$1.com" target="_blank">$1</a>'
+        );
+
+      } catch (err) {
+        resultDiv.className = "result diseased";
+        resultDiv.innerHTML = "⚠️ Error connecting to server.";
+      }
+    }
+  </script>
+
+  <center> <a href="C:\Users\Vaishnavi\OneDrive\Desktop\plant\index.html"><p><img src="C:\Users\Vaishnavi\OneDrive\Desktop\plant\images\home_8872250.png" width="30" height="30 " alt="back to home "></p></a></center>      
+ 
+</body>
+</html>

@@ -1,0 +1,29 @@
+{
+  "name": "cropcare-chatbot",
+  "version": "1.0.0",
+  "description": "CropCare chatbot with Gemini API",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.21.2",
+    "multer": "^2.0.2",
+    "node-fetch": "^3.3.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vaishnavikhatale/CropCare.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vaishnavikhatale/CropCare/issues"
+  },
+  "homepage": "https://github.com/vaishnavikhatale/CropCare#readme"
+}

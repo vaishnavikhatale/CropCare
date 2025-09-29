@@ -1,0 +1,286 @@
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact Us</title>
+
+  <!-- Font Awesome (icons) -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    :root{
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --accent: #10b981; /* green */
+      --muted: #6b7280;
+      --radius: 12px;
+      --shadow: 0 6px 18px rgba(16,24,40,0.08);
+      --container-max: 1200px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: #0f172a;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: var(--container-max);
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 32px;
+      letter-spacing: -0.2px;
+    }
+    header p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .cards {
+      display: flex;
+      gap: 24px;
+      align-items: stretch;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 20px;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex: 1 1 30%; /* roughly 3 cards per row on wide screens */
+      min-width: 280px;
+      transition: transform .16s ease, box-shadow .16s ease;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(16,24,40,0.12);
+    }
+
+    .avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #ecfccb, #bbf7d0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: #065f46;
+      font-size: 32px;
+      flex-shrink: 0;
+    }
+
+    .info {
+      flex: 1;
+      min-width: 0;
+    }
+    .info h3 {
+      margin: 0 0 6px 0;
+      font-size: 18px;
+    }
+    .role {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+    .bio {
+      margin: 0;
+      color: #334155;
+      font-size: 14px;
+      line-height: 1.35;
+      margin-bottom: 12px;
+    }
+
+    .social {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .social a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      text-decoration: none;
+      background: rgba(15,23,42,0.03);
+      color: #0f172a;
+      transition: transform .12s ease, background .12s ease;
+      font-size: 16px;
+    }
+    .social a .fa-envelope, .social a .fa-phone {
+      font-size: 14px;
+    }
+    .social a:hover {
+      transform: translateY(-4px);
+      background: linear-gradient(90deg, rgba(16,185,129,0.12), rgba(16,185,129,0.06));
+      color: var(--accent);
+    }
+
+    @media (max-width: 900px) {
+      .card {
+        flex-basis: 48%;
+      }
+      .avatar {
+        width: 64px;
+        height: 64px;
+        font-size: 24px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        flex-basis: 100%;
+      }
+    }
+
+    .note {
+      margin-top: 24px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Contact Us</h1>
+      <p>If you’d like to connect, here are our team members. Feel free to reach out via email, phone, or social profiles.</p>
+    </header>
+
+    <section class="cards">
+      <!-- Card 1 -->
+      <article class="card">
+        <div class="avatar">RG</div>
+        <div class="info">
+          <h3>Rushikesh Gavhane</h3>
+          <p class="role">Frontend Developer & UI Designer</p>
+          <p class="bio">I build beautiful user-interfaces for web & mobile. Passionate about usability, accessibility, and animations.</p>
+          <div class="social">
+            <a href="mailto:vaishnavi@example.com" title="Email Vaishnavi"><i class="fa-solid fa-envelope"></i></a>
+            <a href="tel:+919876543210" title="Call Vaishnavi"><i class="fa-solid fa-phone"></i></a>
+            <a href="https://instagram.com/vaishnavi_profile" target="_blank" rel="noopener noreferrer" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/vaishnavi-profile" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://github.com/vaishnavi" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fa-brands fa-github"></i></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="card">
+        <div class="avatar">DM</div>
+        <div class="info">
+          <h3>Darshan More</h3>
+          <p class="role">Backend Engineer & DevOps</p>
+          <p class="bio">Building scalable APIs and DevOps pipelines. I love automation, monitoring, and efficient systems.</p>
+          <div class="social">
+            <a href="mailto:ashwin@example.com" title="Email Ashwin"><i class="fa-solid fa-envelope"></i></a>
+            <a href="tel:+918123456789" title="Call Ashwin"><i class="fa-solid fa-phone"></i></a>
+            <a href="https://instagram.com/ashwin_profile" target="_blank" rel="noopener noreferrer" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/ashwin-profile" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://github.com/ashwin" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fa-brands fa-github"></i></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="card">
+        <div class="avatar">DN</div>
+        <div class="info">
+          <h3>Dhanraj Nikam</h3>
+          <p class="role">Mobile App Developer</p>
+          <p class="bio">Creating cross-platform apps with Flutter. I focus on performance and sleek UI designs.</p>
+          <div class="social">
+            <a href="mailto:sneha@example.com" title="Email Sneha"><i class="fa-solid fa-envelope"></i></a>
+            <a href="tel:+917654321098" title="Call Sneha"><i class="fa-solid fa-phone"></i></a>
+            <a href="https://instagram.com/sneha_profile" target="_blank" rel="noopener noreferrer" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/sneha-profile" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://github.com/sneha" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fa-brands fa-github"></i></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="card">
+        <div class="avatar">OD</div>
+        <div class="info">
+          <h3>Om Dahake</h3>
+          <p class="role">UX Researcher</p>
+          <p class="bio">I study user behavior, usability tests and conduct interviews to improve product experience.</p>
+          <div class="social">
+            <a href="mailto:rohan@example.com" title="Email Rohan"><i class="fa-solid fa-envelope"></i></a>
+            <a href="tel:+919999888777" title="Call Rohan"><i class="fa-solid fa-phone"></i></a>
+            <a href="https://instagram.com/rohan_profile" target="_blank" rel="noopener noreferrer" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/rohan-profile" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://github.com/rohan" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fa-brands fa-github"></i></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 5 -->
+      <article class="card">
+        <div class="avatar">SJ</div>
+        <div class="info">
+          <h3>Sakshi Jadhav</h3>
+          <p class="role">Content Writer</p>
+          <p class="bio">Creating engaging blog content and technical writing. I care about clarity and storytelling.</p>
+          <div class="social">
+            <a href="mailto:nidhi@example.com" title="Email Nidhi"><i class="fa-solid fa-envelope"></i></a>
+            <a href="tel:+919112233445" title="Call Nidhi"><i class="fa-solid fa-phone"></i></a>
+            <a href="https://instagram.com/nidhi_profile" target="_blank" rel="noopener noreferrer" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/nidhi-profile" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://github.com/nidhi" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fa-brands fa-github"></i></a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 6 -->
+      <article class="card">
+        <div class="avatar">VK</div>
+        <div class="info">
+          <h3>Vaishnavi Khatale</h3>
+          <p class="role">QA Engineer</p>
+          <p class="bio">I test web & mobile apps for bugs and performance issues. Great attention to detail and automation tests.</p>
+          <div class="social">
+            <a href="mailto:mayank@example.com" title="Email Mayank"><i class="fa-solid fa-envelope"></i></a>
+            <a href="tel:+918776655443" title="Call Mayank"><i class="fa-solid fa-phone"></i></a>
+            <a href="https://instagram.com/mayank_profile" target="_blank" rel="noopener noreferrer" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/mayank-profile" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://github.com/mayank" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fa-brands fa-github"></i></a>
+          </div>
+        </div>
+      </article>
+    </section>
+    <center> <a href="C:\Users\Vaishnavi\OneDrive\Desktop\plant\index.html"><p><img src="C:\Users\Vaishnavi\OneDrive\Desktop\plant\images\home_8872250.png" width="30" height="30 " alt="back to home "></p></a></center>      
+  
+    <p class="note">If you prefer to contact by another method, let us know. We'll try to accommodate.</p>
+  </div>
+</body>
+</html>
