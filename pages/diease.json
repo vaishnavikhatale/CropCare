@@ -1,0 +1,17 @@
+
+
+{
+  "Healthy": {
+    "treatment": "No treatment needed.",
+    "supplements": "Use balanced N-P-K fertilizer."
+  },
+  "Late Blight": {
+    "treatment": "Remove affected parts, use fungicide spray.",
+    "supplements": "Potassium & phosphorus rich supplements."
+  },
+  "Powdery Mildew": {
+    "treatment": "Apply neem oil or sulfur spray; improve ventilation.",
+    "supplements": "Add calcium and magnesium."
+  }
+
+}
